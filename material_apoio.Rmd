@@ -73,6 +73,15 @@ Et doloribus quibusdam qui reprehenderit exercitationem aut dolore dolores qui i
 ## Variância
 Sit enim ipsa et voluptatem dolore aut dolore esse aut quidem nihil in dolore perferendis vel possimus voluptates est quas enim. Eum consequatur rerum eos facere quis est distinctio sapiente non quibusdam debitis qui accusamus dicta.
 
+
+### Variância Populacional
+Sit enim ipsa et voluptatem dolore aut dolore esse aut quidem nihil in dolore perferendis vel possimus voluptates est quas enim. Eum consequatur rerum eos facere quis est distinctio sapiente non quibusdam debitis qui accusamus dicta.
+$$s^2 = \frac{\sum_{i=1}^{n}(x_i - \bar{x})^2} {n-1}$$
+
+### Variância Amostral
+Sit enim ipsa et voluptatem dolore aut dolore esse aut quidem nihil in dolore perferendis vel possimus voluptates est quas enim. Eum consequatur rerum eos facere quis est distinctio sapiente non quibusdam debitis qui accusamus dicta.
+$$\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}$$
+
 ## Desvio Padrão
 Sed magni dicta qui incidunt omnis vel ratione perferendis sit ipsa error ut aliquid dolor non voluptate sequi. Qui odit aliquam a fuga repudiandae cum laborum explicabo. Qui voluptatem earum ad quibusdam commodi quo illo numquam quo quia nisi qui numquam voluptatum.
 
