@@ -1,0 +1,84 @@
+---
+title: "Estatística Básica"
+author: "Estats Consultoria"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+    html_document:
+       highlight: textmate
+       theme: flatly
+       number_sections: yes
+       toc: yes
+       toc_float:
+         collapsed: yes
+         smooth_scroll: no
+---
+
+# Por que Estatística?
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+  
+
+# Variáveis
+At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat  
+
+## Variáveis Qualitativas
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt  
+
+### Variáveis Qualitativas Ordinais  
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+
+### Variáveis Qualitativas Nominais  
+Lorem ipsum dolor sit amet. Sed maxime repudiandae quo nisi rerum in nihil adipisci in minima tenetur. Eum dolorem iure eos odit perferendis id enim quidem quo dolorem mollitia At aspernatur quas?  
+
+### Variáveis Qualitativas Dicotômicas
+Aut eligendi ipsam aut vitae mollitia 33 numquam iusto ut officia recusandae qui animi beatae ut accusamus tenetur aut reprehenderit minus. Et enim quod aut cumque minus sit enim impedit eum dolor rerum 33 nihil facere.
+
+## Variáveis Quantitativas
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum  
+
+### Variáveis Quantitativas Discretas
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum  
+
+### Variáveis Quantitativas Contínuas
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+
+
+# Medidas de Tendência Central
+Est aperiam labore ex excepturi optio qui molestiae omnis qui nihil perferendis et suscipit illo. Ea laborum soluta et cumque dolores et reiciendis quod ex quis vitae. Ut quibusdam alias ab galisum eveniet ut internos ipsa est vero amet? Rem maiores fugiat sit galisum quia vel nisi dolorem et eaque dolor ut nobis enim rem consequatur possimus et natus assumenda.
+
+## Média
+Est aperiam labore ex excepturi optio qui molestiae omnis qui nihil perferendis et suscipit illo. Ea laborum soluta et cumque dolores et reiciendis quod ex quis vitae. Ut quibusdam alias ab galisum eveniet ut internos ipsa est vero amet? Rem maiores fugiat sit galisum quia vel nisi dolorem et eaque dolor ut nobis enim rem consequatur possimus et natus assumenda.
+
+### Casos particulares em que a média não é uma boa medida
+Est aperiam labore ex excepturi optio qui molestiae omnis qui nihil perferendis et suscipit illo. Ea laborum soluta et cumque dolores et reiciendis quod ex quis vitae. Ut quibusdam alias ab galisum eveniet ut internos ipsa est vero amet? Rem maiores fugiat sit galisum quia vel nisi dolorem et eaque dolor ut nobis enim rem consequatur possimus et natus assumenda.
+
+## Moda
+Est aperiam labore ex excepturi optio qui molestiae omnis qui nihil perferendis et suscipit illo. Ea laborum soluta et cumque dolores et reiciendis quod ex quis vitae. Ut quibusdam alias ab galisum eveniet ut internos ipsa est vero amet? Rem maiores fugiat sit galisum quia vel nisi dolorem et eaque dolor ut nobis enim rem consequatur possimus et natus assumenda.
+
+### Caso Multimodal
+Qui velit esse ad incidunt beatae qui deleniti nulla eos aliquid sunt! Non voluptatum totam vel tempore dolorem et dolorem alias sed nesciunt quia. Aut dignissimos quaerat sit velit ipsum aut Quis delectus sed galisum cumque ut perspiciatis pariatur. Eum laudantium suscipit vel Quis obcaecati sed mollitia dolor eos voluptatem animi ut quaerat quos ut sunt enim
+
+## Mediana
+Qui velit esse ad incidunt beatae qui deleniti nulla eos aliquid sunt! Non voluptatum totam vel tempore dolorem et dolorem alias sed nesciunt quia. Aut dignissimos quaerat sit velit ipsum aut Quis delectus sed galisum cumque ut perspiciatis pariatur. Eum laudantium suscipit vel Quis obcaecati sed mollitia dolor eos voluptatem animi ut quaerat quos ut sunt enim
+
+### Limitações da Mediana
+Qui velit esse ad incidunt beatae qui deleniti nulla eos aliquid sunt! Non voluptatum totam vel tempore dolorem et dolorem alias sed nesciunt quia. Aut dignissimos quaerat sit velit ipsum aut Quis delectus sed galisum cumque ut perspiciatis pariatur. Eum laudantium suscipit vel Quis obcaecati sed mollitia dolor eos voluptatem animi ut quaerat quos ut sunt enim
+
+# Medidas de Dispersão
+Sit enim ipsa et voluptatem dolore aut dolore esse aut quidem nihil in dolore perferendis vel possimus voluptates est quas enim. Eum consequatur rerum eos facere quis est distinctio sapiente non quibusdam debitis qui accusamus dicta.
+
+## Amplitude
+Et doloribus quibusdam qui reprehenderit exercitationem aut dolore dolores qui internos eligendi quo dolor perspiciatis est quibusdam earum ut placeat perferendis. Sit molestias beatae qui exercitationem quia qui dolores omnis est tenetur sequi. Qui doloremque modi nam numquam quam est praesentium ullam et pariatur Quis.
+
+## Variância
+Sit enim ipsa et voluptatem dolore aut dolore esse aut quidem nihil in dolore perferendis vel possimus voluptates est quas enim. Eum consequatur rerum eos facere quis est distinctio sapiente non quibusdam debitis qui accusamus dicta.
+
+## Desvio Padrão
+Sed magni dicta qui incidunt omnis vel ratione perferendis sit ipsa error ut aliquid dolor non voluptate sequi. Qui odit aliquam a fuga repudiandae cum laborum explicabo. Qui voluptatem earum ad quibusdam commodi quo illo numquam quo quia nisi qui numquam voluptatum.
+
+## Coeficiente de Variação
+Ut quasi ipsum in quibusdam odit ut dolor placeat et accusamus Quis et fugit architecto ut magnam fugit ex quas numquam. Est culpa laboriosam et magnam cupiditate sit eius sint rem dolore veritatis.
+
+# Referências
+Sed magni dicta qui incidunt omnis vel ratione perferendis sit ipsa error ut aliquid dolor non voluptate sequi. Qui odit aliquam a fuga repudiandae cum laborum explicabo. Qui voluptatem earum ad quibusdam commodi quo illo numquam quo quia nisi qui numquam voluptatum.
+
