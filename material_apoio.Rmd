@@ -15,7 +15,11 @@ output:
          smooth_scroll: no
 ---
 
-
+<style>
+body{
+text-align: justify;
+}
+</style>
 
 # Por que Estatística?
 A estatística tem como objetivo levantar dados e informações para se ter uma tomada de decisão mais assertiva. Por exemplo, em estudos clínicos, é possível determinar se determinado remédio realmente funciona, ou se foi apenas um efeito aleatório no corpo das pessoas, por meio de inferência, também é possível saber a probabilidade de uma lâmpada durar menos de 300 horas de uso, dada sua distribuição, além disso, é possível estimar a média da altura de uma população baseado em uma amostra.
