@@ -18,24 +18,64 @@ output:
 
 
 # Por que Estatística?
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-  
+A estatística tem como objetivo levantar dados e informações para poder-se ter uma tomada de decisão mais assertiva. Por exemplo, em estudos clínicos, é possível determinar se determinado remédio realmente funciona, ou se foi apenas um efeito aleatório no corpo das pessoas, por meio de inferência; é possível saber a probabilidade de uma lâmpada durar menos de 300 horas de uso, dada sua distribuição; é possível estimar a média da altura de uma população baseado em uma amostra, etc.
+No que tange a esse curso, o que será abordado serão alguns assuntos que ajudam a fazer uma **análise descritiva** mais assertiva, sem achismos. 
+
+## Análise Descritiva
+É a parte inicial de qualquer trabalho estatístico. Nessa etapa, é possível determinar possíveis valores extremos no conjunto de dados; quais são as maiores ocorrências de determinadas (insira uma palavra aqui que substitua variáveis). Se é muito utilizado gráficos e tabelas para resumir os dados e tornar mais observável para o pesquisador.  
+Nessa etapa, também se é possível observar possíveis valores incorretos. Por exemplo, em uma base de dados que se tem o registro da idade dos moradores de Maringá, é possível observar uma idade de -10. Obviamente, esse valor está errado, e podemos ver por meio da análise descritiva. Após identificados possíveis valores errados, se é feita uma limpeza dos dados. 
 
 # Variáveis
-At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat  
+Primeiramente, é importante entendermos como são nossos dados e como classificá-los. Precisamos, por exemplo, verificar se são números, se são inteiros ou decimais; se são palavras, se são palavras que seguem alguma ordem de importância (por exemplo, escolaridade), se não possuem ordem de importância (por exemplo, estado civil), ou se podem assumir apenas dois valores (por exemplo, se tem diabetes ou não).
 
 ## Variáveis Qualitativas
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt  
+De forma resumida, são aquelas que podem ser representadas por palavras. Não é viável, por exemplo, representar altura por meio de palavras (ninguém escreve fulano tem um metro e oitenta e três de altura, e sim, fulano tem 1.83m). No entanto, um adendo quanto à essas variáveis. Em alguns casos, pode-se atribuir valores para representar determinadas palavras. Um exemplo: no caso de vacinas, podemos ter uma situação tal que o indivíduo não solicitou, solicitou e recebeu, solicitou e não recebeu. Nesse caso, podemos dizer que não solicitou representa 1, solicitou e recebeu 2, e solicitou e não recebeu 3. Note que em nenhum momento a natureza da resposta foi mudada. Por isso, é interessante que sempre que for fazer essas alterações, se tenha documentado o que cada número representa.  
+Esses números são importantes, em especial, para algoritmos de Aprendizado de Máquina. No entanto, não serão abordados nesse curso. Caso tenha mais interesse no assunto:
+[Word Embedding](https://iaexpert.academy/2019/04/12/word-embedding-transformando-palavras-em-numeros/)  
+<br>
+Existem muitos tipos de gráficos para representar essas variáveis. No entanto, pretendemos focar mais em dois gráficos: **Gráfico de barras** e **Gráfico de setores (ou pizza)**.  
+```{r grafico, include = FALSE}
+library(data.table)
+dados_iris <- iris
+setnames(dados_iris, old = c('Sepal.Length', 'Sepal.Width', 'Petal.Length', 'Petal.Width', 'Species'), new = c('Comprimento_Sepala', 'Largura_Sepala', 'Comprimento_Petala', 'Largura_Sepala', 'Especie'))
+dados_mtcars <- mtcars
+dados_mtcars$qsec <- NULL
+dados_mtcars$disp <- NULL
+dados_mtcars$hp   <- NULL
+
+setnames(dados_mtcars, old = c('mpg', 'cyl', 'drat', 'wt','vs', 'am', 'gear', 'carb'), new = c('Milhas_por_Galao', 'Numero_de_Cilindros', 'Razao_Eixo', 'Peso (1000 lbs)', 'Motor', 'Transmissao', 'Numero_eixos_dianteiros', 'Numero_carboradores'))
+```
+
+Iremos usar como exemplo uma base de dados, chamada iris, disponível no R. Os dados consistem no (INSIRA ALGUMA COISA)
+```{r visualizacao do banco, echo = FALSE, message=FALSE, warning=FALSE}
+library(knitr)
+library(rmarkdown)
+paged_table(dados_iris)
+
+```
+
+
+
+**Gráfico de barras**: São utilizados retângulos de forma com que a altura fique proporcional a quantidade total. Por exemplo, suponha que nosso interesse seja como se comporta o número de cilindros dos carros nessa categoria. 
+
+NO SITE NAO VAI APARECER, MAS PLOTA ALGO AQUI EMBAIXO 
+
+
+**Gráfico de Pizza**: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+
+No entanto, um adendo quanto à essas variáveis. Em alguns casos, pode-se atribuir valores para representar determinadas palavras. Um exemplo: no caso de vacinas, podemos ter uma situação tal que o indivíduo não solicitou, solicitou e recebeu, solicitou e não recebeu. Nesse caso, podemos dizer que não solicitou representa 1, solicitou e recebeu 2, e solicitou e não recebeu 3. Note que em nenhum momento a natureza da resposta foi mudada. Por isso, é interessante que sempre que for fazer essas alterações, se tenha documentado o que cada número representa.  
+Esses números são importantes, em especial, para algoritmos de Aprendizado de Máquina. No entanto, não serão abordados nesse curso. Caso tenha mais interesse no assunto:
+[Word Embedding](https://iaexpert.academy/2019/04/12/word-embedding-transformando-palavras-em-numeros/)
 
 ### Variáveis Qualitativas Ordinais  
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+As variáveis qualitativas ordinais são aquelas que possuem uma ordem em seus valores. Como já citado, escolaridade pode ser uma delas, pois um indivíduo começa no fundamental, vai para o médio, ensino superior, mestrado, doutorado. Não se é possível começar do doutorado e chegar no fundamental.
 
 ### Variáveis Qualitativas Nominais  
-Lorem ipsum dolor sit amet. Sed maxime repudiandae quo nisi rerum in nihil adipisci in minima tenetur. Eum dolorem iure eos odit perferendis id enim quidem quo dolorem mollitia At aspernatur quas?  
+As variáveis qualitativas nominais são aquelas que não possuem ordenação nos seus valores. Exemplo, o sexo de um indivíduo. Não faz diferença ser masculino ou feminino, não possui uma ordem de importância.  
 
 ### Variáveis Qualitativas Dicotômicas
-Aut eligendi ipsam aut vitae mollitia 33 numquam iusto ut officia recusandae qui animi beatae ut accusamus tenetur aut reprehenderit minus. Et enim quod aut cumque minus sit enim impedit eum dolor rerum 33 nihil facere.
+São aquelas que pode ter apenas dois valores.
 
 ## Variáveis Quantitativas
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum  
@@ -93,5 +133,4 @@ Sed magni dicta qui incidunt omnis vel ratione perferendis sit ipsa error ut ali
 Ut quasi ipsum in quibusdam odit ut dolor placeat et accusamus Quis et fugit architecto ut magnam fugit ex quas numquam. Est culpa laboriosam et magnam cupiditate sit eius sint rem dolore veritatis.
 
 # Referências
-Sed magni dicta qui incidunt omnis vel ratione perferendis sit ipsa error ut aliquid dolor non voluptate sequi. Qui odit aliquam a fuga repudiandae cum laborum explicabo. Qui voluptatem earum ad quibusdam commodi quo illo numquam quo quia nisi qui numquam voluptatum.
-
+Bussab, WO; Morettin, PA. Estatística Básica. São Paulo: Editora Saraiva, 2010 (6ª Edição).
