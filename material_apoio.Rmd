@@ -18,12 +18,12 @@ output:
 
 
 # Por que Estatística?
-A estatística tem como objetivo levantar dados e informações para poder-se ter uma tomada de decisão mais assertiva. Por exemplo, em estudos clínicos, é possível determinar se determinado remédio realmente funciona, ou se foi apenas um efeito aleatório no corpo das pessoas, por meio de inferência; é possível saber a probabilidade de uma lâmpada durar menos de 300 horas de uso, dada sua distribuição; é possível estimar a média da altura de uma população baseado em uma amostra, etc.
-No que tange a esse curso, o que será abordado serão alguns assuntos que ajudam a fazer uma **análise descritiva** mais assertiva, sem achismos. 
+A estatística tem como objetivo levantar dados e informações para se ter uma tomada de decisão mais assertiva. Por exemplo, em estudos clínicos, é possível determinar se determinado remédio realmente funciona, ou se foi apenas um efeito aleatório no corpo das pessoas, por meio de inferência, também é possível saber a probabilidade de uma lâmpada durar menos de 300 horas de uso, dada sua distribuição, além disso, é possível estimar a média da altura de uma população baseado em uma amostra.
+No que tange a esse curso, serão abordados alguns assuntos que ajudarão a realizar uma **análise descritiva** mais assertiva, sem achismos. 
 
 ## Análise Descritiva
-É a parte inicial de qualquer trabalho estatístico. Nessa etapa, é possível determinar possíveis valores extremos no conjunto de dados; quais são as maiores ocorrências de determinadas (insira uma palavra aqui que substitua variáveis). Se é muito utilizado gráficos e tabelas para resumir os dados e tornar mais observável para o pesquisador.  
-Nessa etapa, também se é possível observar possíveis valores incorretos. Por exemplo, em uma base de dados que se tem o registro da idade dos moradores de Maringá, é possível observar uma idade de -10. Obviamente, esse valor está errado, e podemos ver por meio da análise descritiva. Após identificados possíveis valores errados, se é feita uma limpeza dos dados. 
+É a parte inicial de qualquer trabalho estatístico na qual observamos, entendemos e organizamos nossos dados. Nessa etapa, é possível determinar prováveis valores extremos no conjunto de dados, se é capaz de verificar quais são as ocorrências mais frequentes. Nessa parte da análise, são muito utilizados gráficos, tabelas e algumas medidas para resumir os dados e torna-los mais intelígiveis ao pesquisador.  
+Nessa etapa, também é possível observar possíveis valores incorretos, por exemplo, em uma base de dados que se tem o registro da idade dos moradores de Maringá, é encontrado uma idade de -10. Obviamente, esse valor está errado, e esse pode ser encontrado, facilmente, via uma análise descritiva. Após identificados valores errados, é feita uma limpeza nos dados. 
 
 # Variáveis
 Primeiramente, é importante entendermos como são nossos dados e como classificá-los. Precisamos, por exemplo, verificar se são números, se são inteiros ou decimais; se são palavras, se são palavras que seguem alguma ordem de importância (por exemplo, escolaridade), se não possuem ordem de importância (por exemplo, estado civil), ou se podem assumir apenas dois valores (por exemplo, se tem diabetes ou não).
