@@ -135,7 +135,7 @@ moda(numero_de_filhos)
 
 
 ### Caso Multimodal
-Qui velit esse ad incidunt beatae qui deleniti nulla eos aliquid sunt! Non voluptatum totam vel tempore dolorem et dolorem alias sed nesciunt quia. Aut dignissimos quaerat sit velit ipsum aut Quis delectus sed galisum cumque ut perspiciatis pariatur. Eum laudantium suscipit vel Quis obcaecati sed mollitia dolor eos voluptatem animi ut quaerat quos ut sunt enim
+O caso multimodal é quando se tem mais de um número repetido. Por exemplo: em uma pesquisa do número de filhos, pode-se ter a mesma quantidade de pessoas com 3 e 4 filhos.
 
 ## Mediana
 A mediana vai servir para vermos em que ponto do conjunto de dados, está 50% das informações. 
@@ -180,22 +180,34 @@ São usadas para determinar o grau de variabilidade dos dados. Por exemplo, se o
 É o maior valor observado subtraído do menor.
 
 ## Variância
-Sit enim ipsa et voluptatem dolore aut dolore esse aut quidem nihil in dolore perferendis vel possimus voluptates est quas enim. Eum consequatur rerum eos facere quis est distinctio sapiente non quibusdam debitis qui accusamus dicta.
+Determina quanto, em média, uma medida se distancia da outra. O problema é que ela é elevada ao quadrado, por isso pode-se parecer maior do que realmente é, e extraimos sua raíz para consertar isso.
 
 
 ### Variância Populacional
-Sit enim ipsa et voluptatem dolore aut dolore esse aut quidem nihil in dolore perferendis vel possimus voluptates est quas enim. Eum consequatur rerum eos facere quis est distinctio sapiente non quibusdam debitis qui accusamus dicta.
+Existem dois tipos de variâncias: populacional e e amostral. A populacional será quando o pesquisador poder obter todos os dados possíveis. 
 $$\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}$$
 
 ### Variância Amostral
-Sit enim ipsa et voluptatem dolore aut dolore esse aut quidem nihil in dolore perferendis vel possimus voluptates est quas enim. Eum consequatur rerum eos facere quis est distinctio sapiente non quibusdam debitis qui accusamus dicta.
+A amostral será usada quando não for possível obter todos os dados possíveis. Se é dividida por n-1 por problemas de víes. Para mais informações: [Viés de variância](https://towardsdatascience.com/why-sample-variance-is-divided-by-n-1-89821b83ef6d)
 $$s^2 = \frac{\sum_{i=1}^{n}(x_i - \bar{x})^2} {n-1}$$
 
 ## Desvio Padrão
-Sed magni dicta qui incidunt omnis vel ratione perferendis sit ipsa error ut aliquid dolor non voluptate sequi. Qui odit aliquam a fuga repudiandae cum laborum explicabo. Qui voluptatem earum ad quibusdam commodi quo illo numquam quo quia nisi qui numquam voluptatum.
+O desvio padrão é uma estimativa mais ''correta'' de como os dados se dispersam um do outro, pois estará em sua medida padrão, sem elevar ao quardado. Para calculá-la, basta extrair a raíz da variância.  
+
+### Desvio Padrão populacional  
+$$\sigma = \sqrt{\frac{1}{N} \sum_{i=1}^N (x_i - \mu)^2}$$
+
+
+
+### Desvio Padrão amostral
+$$s = \sqrt{\frac{1}{n-1} \sum_{i=1}^n (x_i - \overline{x})^2}$$
+
 
 ## Coeficiente de Variação
-Ut quasi ipsum in quibusdam odit ut dolor placeat et accusamus Quis et fugit architecto ut magnam fugit ex quas numquam. Est culpa laboriosam et magnam cupiditate sit eius sint rem dolore veritatis.
+O coeficiente de variação tem duas utilidades: comparar desvios médios para duas variáveis onde se tem diferentes escalas, e também para determinar se a média é uma boa medida para resumir os dados.
+
+$$CV = \frac{\sigma}{\mu}$$
+
 
 # Referências
 Bussab, WO; Morettin, PA. Estatística Básica. São Paulo: Editora Saraiva, 2010 (6ª Edição).
