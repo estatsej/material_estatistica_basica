@@ -22,7 +22,7 @@ text-align: justify;
 </style>
 
 # Por que Estatística?
-A estatística tem como objetivo levantar dados e informações para se ter uma tomada de decisão mais assertiva. Por exemplo, em estudos clínicos, é possível determinar se determinado remédio realmente funciona, ou se foi apenas um efeito aleatório no corpo das pessoas, por meio de inferência, também é possível saber a probabilidade de uma lâmpada durar menos de 300 horas de uso, dada sua distribuição, além disso, é possível estimar a média da altura de uma população baseado em uma amostra.
+A estatística tem como objetivo levantar dados e informações buscando uma tomada de decisão mais assertiva. Por exemplo, em estudos clínicos, é possível determinar se determinado remédio realmente funciona, ou se foi apenas um efeito aleatório no corpo das pessoas, por meio de inferência, também é possível saber a probabilidade de uma lâmpada durar menos de 300 horas de uso, dada sua distribuição, além disso, é possível estimar a média da altura de uma população baseado em uma amostra.
 No que tange a esse curso, serão abordados alguns assuntos que ajudarão a realizar uma **análise descritiva** mais assertiva, sem achismos. 
 
 ## Análise Descritiva
@@ -33,7 +33,7 @@ Nessa etapa, também é possível observar possíveis valores incorretos, por ex
 Primeiramente, é importante entendermos como são nossos dados e como classificá-los. Precisamos, por exemplo, verificar se esses são números, se são inteiros ou decimais, ou se são categorias, se seguem alguma ordem de importância, como escolaridade, ou não, como estado civil, se podem assumir apenas dois valores, por exemplo, ter diabetes ou não.
 
 ## Variáveis Qualitativas
-De forma resumida, são aquelas que podem ser representadas por palavras. Não é viável, por exemplo, representar altura por meio de palavras (ninguém escreve fulano tem um metro e oitenta e três de altura, e sim, fulano tem 1.83m). No entanto, um adendo quanto à essas variáveis. Em alguns casos, pode-se atribuir valores para representar determinadas palavras. Um exemplo: no caso de vacinas, podemos ter uma situação tal que o indivíduo não solicitou, solicitou e recebeu, solicitou e não recebeu. Nesse caso, podemos dizer que não solicitou representa 1, solicitou e recebeu 2, e solicitou e não recebeu 3. Note que em nenhum momento a natureza da resposta foi mudada. Por isso, é interessante que sempre que for fazer essas alterações, se tenha documentado o que cada número representa.  
+De forma resumida, são aquelas que podem ser representadas por palavras. Não é viável, por exemplo, representar altura por meio de palavras (ninguém escreve fulano tem um metro e oitenta e três de altura, e sim, fulano tem 1.83m). No entanto, um adendo quanto a essas variáveis. Em alguns casos, pode-se atribuir valores para representar determinadas palavras. Um exemplo: no caso de vacinas, podemos ter uma situação tal que o indivíduo não solicitou, solicitou e recebeu, solicitou e não recebeu. Nesse caso, podemos dizer que não solicitou representa 1, solicitou e recebeu 2, e solicitou e não recebeu 3. Note que em nenhum momento a natureza da resposta foi mudada. Por isso, é interessante que sempre que for fazer essas alterações, se tenha documentado o que cada número representa.  
 Esses números são importantes, em especial, para algoritmos de Aprendizado de Máquina. No entanto, não serão abordados nesse curso. Caso tenha mais interesse no assunto:
 [Word Embedding](https://iaexpert.academy/2019/04/12/word-embedding-transformando-palavras-em-numeros/)  
 <br>
@@ -50,7 +50,7 @@ dados_mtcars$hp   <- NULL
 setnames(dados_mtcars, old = c('mpg', 'cyl', 'drat', 'wt','vs', 'am', 'gear', 'carb'), new = c('Milhas_por_Galao', 'Numero_de_Cilindros', 'Razao_Eixo', 'Peso (1000 lbs)', 'Motor', 'Transmissao', 'Numero_eixos_dianteiros', 'Numero_carboradores'))
 ```
 
-Iremos usar como exemplo uma base de dados, chamada iris, disponível no R. Os dados consistem no (INSIRA ALGUMA COISA)
+Iremos usar como exemplo uma base de dados, chamada iris, disponível no R. Os dados consistem na distribuição do comprimento e largura das sépalas e pétalas de uma amostra de flores iris.
 ```{r visualizacao do banco, echo = FALSE, message=FALSE, warning=FALSE}
 library(knitr)
 library(rmarkdown)
@@ -62,15 +62,47 @@ paged_table(dados_iris)
 
 **Gráfico de barras**: São utilizados retângulos de forma com que a altura fique proporcional a quantidade total. Por exemplo, suponha que nosso interesse seja como se comporta o número de cilindros dos carros nessa categoria. 
 
-NO SITE NAO VAI APARECER, MAS PLOTA ALGO AQUI EMBAIXO 
+```{r grafico de barras, echo = FALSE}
+barplot(table(dados_mtcars$Numero_de_Cilindros),
+        main = 'Gráfico de barras da frequência do número de cilindros',
+        xlab = ' ',
+        ylab = 'Frequência',
+        names.arg = c('4 cilindros', '6 cilindros', '8 cilindros'))
+```
 
 
-**Gráfico de Pizza**: É um círculo dividido em pedaços. Cada pedaço representa um valor numérico que tem tamanho proporcional ao seu valor.
 
+**Gráfico de Pizza**: É um círculo dividido em pedaços. Cada pedaço representa um valor numérico que tem tamanho proporcional ao seu valor. Esse, é um gáfico que devemos tomar muito cuidado ao utiliza-lo, sendo recomendado apenas se tivermos duas categorias, pois mais que isso perdemos a noção visual do quanto uma parte do gráfico é maior que outra.
+<br>
+Fazendo o mesmo exemplo para o gráfico de pizza, notaremos que é mais fácil perceber a diferença da frequência entre 4 e 6 cilindros.
+```{r grafico de pizza ruim, echo = FALSE}
 
-No entanto, um adendo quanto à essas variáveis. Em alguns casos, pode-se atribuir valores para representar determinadas palavras. Um exemplo: no caso de vacinas, podemos ter uma situação tal que o indivíduo não solicitou, solicitou e recebeu, solicitou e não recebeu. Nesse caso, podemos dizer que não solicitou representa 1, solicitou e recebeu 2, e solicitou e não recebeu 3. Note que em nenhum momento a natureza da resposta foi mudada. Por isso, é interessante que sempre que for fazer essas alterações, se tenha documentado o que cada número representa.  
-Esses números são importantes, em especial, para algoritmos de Aprendizado de Máquina. No entanto, não serão abordados nesse curso. Caso tenha mais interesse no assunto:
-[Word Embedding](https://iaexpert.academy/2019/04/12/word-embedding-transformando-palavras-em-numeros/)
+pie_chart <- table(dados_mtcars$Numero_de_Cilindros)
+pie(pie_chart,
+        main   = 'Gráfico de pizza da frequência do número de cilindros',
+        labels = paste0(round(100 * pie_chart/sum(pie_chart), 2), '%'),
+        col    = c('#1fad66', '#ba2121', '#266ed9')
+          
+        )
+
+legend('topright', legend = c('4 cilindros', '6 cilindros', '8 cilindros'),
+       fill =  c("#1fad66", "#ba2121", "#266ed9"))
+```
+
+Agora respeitando o limite de duas categorias, notaremos que mesmo visualmente conseguimos perceber que a transmissão automática é presente em um pouco mais que 50% dos carros da amostra.
+```{r grafico de pizza bom, echo = FALSE}
+
+pie_chart <- table(dados_mtcars$Transmissao)
+pie(pie_chart,
+        main   = 'Gráfico de pizza do tipo de transmissão',
+        labels = paste0(round(100 * pie_chart/sum(pie_chart), 2), '%'),
+        col    = c( '#ba2121', '#266ed9')
+          
+        )
+
+legend('topright', legend = c('Automática', 'Manual'),
+       fill =  c( "#ba2121", "#266ed9"))
+```
 
 ### Variáveis Qualitativas Ordinais  
 As variáveis qualitativas ordinais são aquelas que possuem uma ordem em seus valores. Como já citado, escolaridade pode ser uma delas, pois um indivíduo começa no fundamental, vai para o médio, ensino superior, mestrado, doutorado. Não se é possível começar do doutorado e chegar no fundamental.
