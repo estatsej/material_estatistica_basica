@@ -72,9 +72,9 @@ barplot(table(dados_mtcars$Numero_de_Cilindros),
 
 
 
-**Gráfico de Pizza**: É um círculo dividido em pedaços. Cada pedaço representa um valor numérico que tem tamanho proporcional ao seu valor. Esse, é um gáfico que devemos tomar muito cuidado ao utiliza-lo, sendo recomendado apenas se tivermos duas categorias, pois mais que isso perdemos a noção visual do quanto uma parte do gráfico é maior que outra.
+<p>**Gráfico de Pizza**: É um círculo dividido em pedaços. Cada pedaço representa um valor numérico que tem tamanho proporcional ao seu valor. Esse, é um gáfico que devemos tomar muito cuidado ao utiliza-lo, sendo recomendado apenas se tivermos duas categorias, pois mais que isso perdemos a noção visual do quanto uma parte do gráfico é maior que outra.</p>
 <br>
-Fazendo o mesmo exemplo para o gráfico de pizza, notaremos que é mais fácil perceber a diferença da frequência entre 4 e 6 cilindros.
+<p>Fazendo o mesmo exemplo para o gráfico de pizza, notaremos que é mais fácil perceber a diferença da frequência entre 4 e 6 cilindros.</p>
 ```{r grafico de pizza ruim, echo = FALSE}
 
 pie_chart <- table(dados_mtcars$Numero_de_Cilindros)
