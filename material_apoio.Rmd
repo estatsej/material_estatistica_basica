@@ -101,7 +101,7 @@ pie(pie_chart,
         )
 
 legend('topright', legend = c('Automática', 'Manual'),
-       fill =  c( "#ba2121", "#266ed9"))
+       fill =  c( "#ba2121", 'gray'))
 ```
 
 ### Variáveis Qualitativas Ordinais  
