@@ -22,7 +22,7 @@ text-align: justify;
 </style>
 
 # Por que Estatística?
-A estatística tem como objetivo levantar dados e informações buscando uma tomada de decisão mais assertiva. Por exemplo, em estudos clínicos, é possível determinar se determinado remédio realmente funciona, ou se foi apenas um efeito aleatório no corpo das pessoas, por meio de inferência, também é possível saber a probabilidade de uma lâmpada durar menos de 300 horas de uso, dada sua distribuição, além disso, é possível estimar a média da altura de uma população baseado em uma amostra.
+A estatística tem como objetivo levantar dados e informações buscando uma tomada de decisão mais assertiva. Por exemplo, em estudos clínicos, é possível determinar se certo remédio realmente funciona, ou se foi apenas um efeito aleatório no corpo das pessoas, por meio de inferência, também é possível saber a probabilidade de uma lâmpada durar menos de 300 horas de uso, dada sua distribuição, além disso, é possível estimar a média da altura de uma população baseado em uma amostra.
 No que tange a esse curso, serão abordados alguns assuntos que ajudarão a realizar uma **análise descritiva** mais assertiva, sem achismos. 
 
 ## Análise Descritiva
@@ -33,79 +33,14 @@ Nessa etapa, também é possível observar possíveis valores incorretos, por ex
 Primeiramente, é importante entendermos como são nossos dados e como classificá-los. Precisamos, por exemplo, verificar se esses são números, se são inteiros ou decimais, ou se são categorias, se seguem alguma ordem de importância, como escolaridade, ou não, como estado civil, se podem assumir apenas dois valores, por exemplo, ter diabetes ou não.
 
 ## Variáveis Qualitativas
-De forma resumida, são aquelas que podem ser representadas por palavras. Não é viável, por exemplo, representar altura por meio de palavras (ninguém escreve fulano tem um metro e oitenta e três de altura, e sim, fulano tem 1.83m). No entanto, um adendo quanto a essas variáveis. Em alguns casos, pode-se atribuir valores para representar determinadas palavras. Um exemplo: no caso de vacinas, podemos ter uma situação tal que o indivíduo não solicitou, solicitou e recebeu, solicitou e não recebeu. Nesse caso, podemos dizer que não solicitou representa 1, solicitou e recebeu 2, e solicitou e não recebeu 3. Note que em nenhum momento a natureza da resposta foi mudada. Por isso, é interessante que sempre que for fazer essas alterações, se tenha documentado o que cada número representa.  
-Esses números são importantes, em especial, para algoritmos de Aprendizado de Máquina. No entanto, não serão abordados nesse curso. Caso tenha mais interesse no assunto:
+De forma resumida, são aquelas que podem ser representadas por palavras, sendo variáveis que exprimem categoria, por exemplo, não é viável representar a altura por meio de palavras. No entanto, quanto a definição de serem representadas por palavras, em alguns casos, pode-se atribuir valores para representar determinadas palavras, um exemplo seria no caso de vacinas, podemos ter uma situação tal que o indivíduo não solicitou, solicitou e recebeu, solicitou e não recebeu. Nesse caso, podemos dizer que não solicitou representa 1, solicitou e recebeu 2, e solicitou e não recebeu 3. Note que em nenhum momento a natureza da resposta foi mudada. Por isso, é interessante que sempre que for fazer essas alterações, se tenha documentado o que cada número representa.  
+Esses números são importantes, em especial, para algoritmos de Aprendizado de Máquina. No entanto, esses não serão abordados nesse curso. Caso tenha mais interesse no assunto:
 [Word Embedding](https://iaexpert.academy/2019/04/12/word-embedding-transformando-palavras-em-numeros/)  
 <br>
-Existem muitos tipos de gráficos para representar essas variáveis. No entanto, pretendemos focar mais em dois gráficos: **Gráfico de barras** e **Gráfico de setores (ou pizza)**.  
-```{r grafico, include = FALSE}
-library(data.table)
-dados_iris <- iris
-setnames(dados_iris, old = c('Sepal.Length', 'Sepal.Width', 'Petal.Length', 'Petal.Width', 'Species'), new = c('Comprimento_Sepala', 'Largura_Sepala', 'Comprimento_Petala', 'Largura_Sepala', 'Especie'))
-dados_mtcars <- mtcars
-dados_mtcars$qsec <- NULL
-dados_mtcars$disp <- NULL
-dados_mtcars$hp   <- NULL
 
-setnames(dados_mtcars, old = c('mpg', 'cyl', 'drat', 'wt','vs', 'am', 'gear', 'carb'), new = c('Milhas_por_Galao', 'Numero_de_Cilindros', 'Razao_Eixo', 'Peso (1000 lbs)', 'Motor', 'Transmissao', 'Numero_eixos_dianteiros', 'Numero_carboradores'))
-```
-
-Iremos usar como exemplo uma base de dados, chamada iris, disponível no R. Os dados consistem na distribuição do comprimento e largura das sépalas e pétalas de uma amostra de flores iris.
-```{r visualizacao do banco, echo = FALSE, message=FALSE, warning=FALSE}
-library(knitr)
-library(rmarkdown)
-paged_table(dados_iris)
-
-```
-
-
-
-**Gráfico de barras**: São utilizados retângulos de forma com que a altura fique proporcional a quantidade total. Por exemplo, suponha que nosso interesse seja como se comporta o número de cilindros dos carros nessa categoria. 
-
-```{r grafico de barras, echo = FALSE}
-barplot(table(dados_mtcars$Numero_de_Cilindros),
-        main = 'Gráfico de barras da frequência do número de cilindros',
-        xlab = ' ',
-        ylab = 'Frequência',
-        names.arg = c('4 cilindros', '6 cilindros', '8 cilindros'))
-```
-
-
-
-<p>**Gráfico de Pizza**: É um círculo dividido em pedaços. Cada pedaço representa um valor numérico que tem tamanho proporcional ao seu valor. Esse, é um gáfico que devemos tomar muito cuidado ao utiliza-lo, sendo recomendado apenas se tivermos duas categorias, pois mais que isso perdemos a noção visual do quanto uma parte do gráfico é maior que outra.</p>
-<br>
-<p>Fazendo o mesmo exemplo para o gráfico de pizza, notaremos que é mais fácil perceber a diferença da frequência entre 4 e 6 cilindros.</p>
-```{r grafico de pizza ruim, echo = FALSE}
-
-pie_chart <- table(dados_mtcars$Numero_de_Cilindros)
-pie(pie_chart,
-        main   = 'Gráfico de pizza da frequência do número de cilindros',
-        labels = paste0(round(100 * pie_chart/sum(pie_chart), 2), '%'),
-        col    = c('#1fad66', '#ba2121', '#266ed9')
-          
-        )
-
-legend('topright', legend = c('4 cilindros', '6 cilindros', '8 cilindros'),
-       fill =  c("#1fad66", "#ba2121", "#266ed9"))
-```
-
-Agora respeitando o limite de duas categorias, notaremos que mesmo visualmente conseguimos perceber que a transmissão automática é presente em um pouco mais que 50% dos carros da amostra.
-```{r grafico de pizza bom, echo = FALSE}
-
-pie_chart <- table(dados_mtcars$Transmissao)
-pie(pie_chart,
-        main   = 'Gráfico de pizza do tipo de transmissão',
-        labels = paste0(round(100 * pie_chart/sum(pie_chart), 2), '%'),
-        col    = c( '#ba2121', '#266ed9')
-          
-        )
-
-legend('topright', legend = c('Automática', 'Manual'),
-       fill =  c( "#ba2121", "#266ed9"))
-```
 
 ### Variáveis Qualitativas Ordinais  
-As variáveis qualitativas ordinais são aquelas que possuem uma ordem em seus valores. Como já citado, escolaridade pode ser uma delas, pois um indivíduo começa no fundamental, vai para o médio, ensino superior, mestrado, doutorado. Não se é possível começar do doutorado e chegar no fundamental.
+As variáveis qualitativas ordinais são aquelas que possuem uma ordem em seus valores. Como já citado, escolaridade pode ser uma delas, pois um indivíduo começa no fundamental, vai para o médio, ensino superior, mestrado, doutorado. Não é possível começar do doutorado e chegar no fundamental.
 
 ### Variáveis Qualitativas Nominais  
 As variáveis qualitativas nominais são aquelas que não possuem ordenação nos seus valores. Exemplo, o sexo de um indivíduo. Não faz diferença ser masculino ou feminino, não possui uma ordem de importância.  
@@ -114,22 +49,22 @@ As variáveis qualitativas nominais são aquelas que não possuem ordenação no
 São aquelas que pode ter apenas dois valores. Exemplo: morto e vivo.
 
 ## Variáveis Quantitativas
-As variáveis quantitativas são aquelas que representam valores exclusivamente numéricos. Altura, peso, quantidade de filhos, enfim, são infinitos os exemplos que podemos citar envolvendo variáveis quantitativas.
+As variáveis quantitativas são aquelas que representam valores exclusivamente numéricos, por exemplo, altura, peso e quantidade de filhos.
 
 ### Variáveis Quantitativas Discretas
-Variáveis quantitativas discretas são aquelas que possuem apenas números inteiros, ou seja, que podem ser contadas. Quantidade de pessoas loiras em uma sala, por exemplo, é uma variável quantitativa discreta.
+Variáveis quantitativas discretas são aquelas que possuem apenas números inteiros, ou seja, que podem ser contadas, como a quantidade de pessoas loiras em uma sala, por exemplo, é uma variável quantitativa discreta.
 
 ### Variáveis Quantitativas Contínuas
-Variáveis quantitativas contínuas são aquelas que possuem números ''flutuantes''. Exemplo é altura, por exemplo, que é sempre representada por duas casas depois da vírgula, normalmente.
+Variáveis quantitativas contínuas são aquelas que possuem números quebrados, por exemplo, a altura que é normalmente é representada por duas casas depois da vírgula.
 
 # Medidas de Tendência Central
-Medidas de tendência central (ou medidas de centralidade) são medidas utilizadas para representar o conjunto de dados como um todo, resumindo de forma representativa tudo que temos. Possuímos três tipos: Média, Moda, Mediana.
+As medidas de tendência central (ou medidas de centralidade) são medidas utilizadas para representar o conjunto de dados como um todo, resumindo de forma representativa tudo que temos, as três principais sendo Média, Moda, Mediana.
 
 ## Média
-A média é uma estatística que pode ser usado para ver como se comporta a variável de interesse ao longo de um número de pessoas, ao longo de um período de tempo, enfim. Ela costuma ser a mais utilizada, pois possui boas propriedades, principalmente quando os seus dados seguem uma curva gaussiana. No entanto, existem casos em que não se é bom utilizá-la. 
+A média é uma estatística que pode ser usado para representar o todo, sendo o ponto de equilibrio dos dados, como na expectativa de vida, espera-se que em média alguém viva esse tempo ou próximo disso. Ela costuma ser a mais utilizada, pois possui boas propriedades, principalmente quando os dados seguem uma curva gaussiana, no entanto, existem casos em que não se é bom utilizá-la. 
 
 ### Casos particulares em que a média não é uma boa medida
-Que a média é a mais utilizada, já sabemos. No entanto, em casos onde há alta variabilidade dos dados (os dados se distanciam um do outro de forma muito acentuada), ela pode não ser uma boa medida, pois valores extremos tendem a distorcer a média. 
+Que a média é a mais utilizada, já sabemos, no entanto, em casos onde há alta variabilidade dos dados, os dados se distanciam um do outro de forma muito acentuada, ela pode não ser uma boa medida, pois valores extremos tendem a distorce-la. 
 
 Exemplo: suponhamos que tenhamos o seguintes dados para idade de pessoas de um curso de estatística:
 
@@ -139,14 +74,14 @@ alunos <- c(18, 18, 19, 20, 23, 20, 21, 22)
 mean(alunos)
 
 ```
-A média da idade dos alunos deu 20.125. Agora, suponhamos que, juntando com essas idades, tenhamos outros dois novos alunos com idades de 50 e 60 anos 
+A idade média dos alunos deu 20.125. Agora, suponhamos que, juntando com essas idades, tenhamos outros dois novos alunos com idades de 50 e 60 anos 
 
 ```{r}
 alunos <- c(18, 18, 19, 20, 23, 20, 21, 22, 50, 60)
 mean(alunos)
 ```
 
-Percebamos que a média já foi muito atingida por isso. Uma boa maneira de quantificar se devemos usar ou não a média é pelo coeficiente de variação (será abordado).
+Percebamos que a média já foi muito atingida por isso. Uma boa maneira de quantificar se devemos usar ou não a média é pelo coeficiente de variação que será abordado mais a frente.
 
 
 ## Moda
@@ -170,7 +105,7 @@ moda(numero_de_filhos)
 O caso multimodal é quando se tem mais de um número repetido. Por exemplo: em uma pesquisa do número de filhos, pode-se ter a mesma quantidade de pessoas com 3 e 4 filhos.
 
 ## Mediana
-A mediana vai servir para vermos em que ponto do conjunto de dados, está 50% das informações. 
+A mediana vai servir para vermos em que ponto do conjunto de dados, está o meio das informações. Para calcula-la ordenamos os dados e pegamos o central, devido a isso ela não sofre como valores extremos como a média.
 
 ```{r}
 num_alguma_coisa <- c(5, 6, 7, 8, 9, 10, 11, 12)
@@ -179,7 +114,7 @@ median(num_alguma_coisa)
 
 ```
 
-NA UNHA, para calculá-la, é necessário determinar se a quantidade de dados é par ou ímpar.   
+No papel, para calculá-la, é necessário determinar se a quantidade de dados é par ou ímpar.   
 **Caso par: ** Se o número de observações for par, calculamos a média dos valores centrais
 ``` {r}
 
@@ -202,17 +137,14 @@ print(mediana)
 
 ```
 
-### Limitações da Mediana
-É mais dificil de ser identificada quando se tem um grande conjunto de dados.
-
 # Medidas de Dispersão
-São usadas para determinar o grau de variabilidade dos dados. Por exemplo, se os dados se distanciam muito um do outro, é notável que irá haver uma alta variabilidade. 
+São usadas para determinar o grau de variabilidade dos dados, se os dados se distanciam muito um do outro irá haver uma alta variabilidade. 
 
 ## Amplitude
-É o maior valor observado subtraído do menor.
+Representa o intervalo em que nossos dados se encontram, sendo calculada como o maior valor observado subtraído do menor.
 
 ## Variância
-Determina quanto, em média, uma medida se distancia da outra. O problema é que ela é elevada ao quadrado, por isso pode-se parecer maior do que realmente é, e extraimos sua raíz para consertar isso.
+Determina quanto, em média, uma medida se distancia da outra. O problema é que ela é elevada ao quadrado, por isso sua unidade também é elevada ao quadrado, assim não sendo interpretada diretamente.
 
 
 ### Variância Populacional
@@ -220,11 +152,11 @@ Existem dois tipos de variâncias: populacional e e amostral. A populacional ser
 $$\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}$$
 
 ### Variância Amostral
-A amostral será usada quando não for possível obter todos os dados possíveis. Se é dividida por n-1 por problemas de víes. Para mais informações: [Viés de variância](https://towardsdatascience.com/why-sample-variance-is-divided-by-n-1-89821b83ef6d)
+A amostral será usada quando não for possível obter todos os dados possíveis, alterando o denominador para n-1 por problemas de víes, para mais informações: [Viés de variância](https://towardsdatascience.com/why-sample-variance-is-divided-by-n-1-89821b83ef6d)
 $$s^2 = \frac{\sum_{i=1}^{n}(x_i - \bar{x})^2} {n-1}$$
 
 ## Desvio Padrão
-O desvio padrão é uma estimativa mais ''correta'' de como os dados se dispersam um do outro, pois estará em sua medida padrão, sem elevar ao quardado. Para calculá-la, basta extrair a raíz da variância.  
+O desvio padrão é uma estimativa que corrige o problema de unidade de como os dados se dispersam um do outro, sendo interpretado mais facilmente. Para calculá-la, basta extrair a raíz da variância.  
 
 ### Desvio Padrão populacional  
 $$\sigma = \sqrt{\frac{1}{N} \sum_{i=1}^N (x_i - \mu)^2}$$
@@ -239,6 +171,84 @@ $$s = \sqrt{\frac{1}{n-1} \sum_{i=1}^n (x_i - \overline{x})^2}$$
 O coeficiente de variação tem duas utilidades: comparar desvios médios para duas variáveis onde se tem diferentes escalas, e também para determinar se a média é uma boa medida para resumir os dados.
 
 $$CV = \frac{\sigma}{\mu}$$
+
+# Gráficos
+
+Existem muitos tipos de gráficos para representar variáveis, no entanto, pretendemos focar mais em alguns gráficos: **Gráfico de barras**, **Gráfico de setores (ou pizza)**, **histograma** e **boxplot**.
+
+```{r grafico, include = FALSE}
+library(data.table)
+dados_iris <- iris
+setnames(dados_iris, old = c('Sepal.Length', 'Sepal.Width', 'Petal.Length', 'Petal.Width', 'Species'), new = c('Comprimento_Sepala', 'Largura_Sepala', 'Comprimento_Petala', 'Largura_Sepala', 'Especie'))
+dados_mtcars <- mtcars
+dados_mtcars$qsec <- NULL
+dados_mtcars$disp <- NULL
+dados_mtcars$hp   <- NULL
+
+setnames(dados_mtcars, old = c('mpg', 'cyl', 'drat', 'wt','vs', 'am', 'gear', 'carb'), new = c('Milhas_por_Galao', 'Numero_de_Cilindros', 'Razao_Eixo', 'Peso (1000 lbs)', 'Motor', 'Transmissao', 'Numero_eixos_dianteiros', 'Numero_carboradores'))
+```
+
+Iremos usar como exemplo uma base de dados, chamada iris, disponível no R. Os dados consistem na distribuição do comprimento e largura das sépalas e pétalas de uma amostra de flores iris.
+```{r visualizacao do banco, echo = FALSE, message=FALSE, warning=FALSE}
+library(knitr)
+library(rmarkdown)
+paged_table(dados_iris)
+
+```
+
+
+
+**Gráfico de barras**: São utilizados retângulos de forma com que a altura fique proporcional a quantidade total. Esse gráfico é, comumente, usado para representar variáveis discretas, ou a frequência de variáveis categóricas. Por exemplo, ele pode ser usado para entender como se comporta o número de cilindros dos carros nessa categoria.
+
+```{r grafico de barras, echo = FALSE}
+barplot(table(dados_mtcars$Numero_de_Cilindros),
+        main = 'Gráfico de barras da frequência do número de cilindros',
+        xlab = ' ',
+        ylab = 'Frequência',
+        names.arg = c('4 cilindros', '6 cilindros', '8 cilindros'))
+```
+
+
+
+<p>**Gráfico de Pizza**: É um círculo dividido em pedaços. Cada pedaço representa um valor numérico que tem área proporcional ao seu valor. Esse, é um gáfico que devemos tomar muito cuidado ao utiliza-lo, sendo recomendado apenas se tivermos duas categorias, pois mais que isso perdemos a noção visual do quanto uma parte do gráfico é maior que outra.</p>
+
+<p>Fazendo o mesmo exemplo para o gráfico de pizza, notaremos que não é mais tão fácil perceber e quantificar a diferença da frequência entre 4 e 6 cilindros.</p>
+```{r grafico de pizza ruim, echo = FALSE}
+
+pie_chart <- table(dados_mtcars$Numero_de_Cilindros)
+pie(pie_chart,
+        main   = 'Gráfico de pizza da frequência do número de cilindros',
+        labels = paste0(round(100 * pie_chart/sum(pie_chart), 2), '%'),
+        col    = c('#1fad66', '#ba2121', '#266ed9')
+          
+        )
+
+legend('topright', legend = c('4 cilindros', '6 cilindros', '8 cilindros'),
+       fill =  c("#1fad66", "#ba2121", "#266ed9"))
+```
+
+Agora respeitando o limite de no utilizar duas categorias, notaremos que mesmo visualmente conseguimos perceber que a transmissão automática é presente em um pouco mais que 50% dos carros da amostra, quanto a manual é o valor complementar.
+```{r grafico de pizza bom, echo = FALSE}
+
+pie_chart <- table(dados_mtcars$Transmissao)
+pie(pie_chart,
+        main   = 'Gráfico de pizza do tipo de transmissão',
+        labels = paste0(round(100 * pie_chart/sum(pie_chart), 2), '%'),
+        col    = c( '#ba2121', '#266ed9')
+          
+        )
+
+legend('topright', legend = c('Automática', 'Manual'),
+       fill =  c( "#ba2121", "#266ed9"))
+```
+
+
+**Histograma**: É um gráfico utilizado para variáveis quantitativas contínuas, sendo constituído de barras uma ao lado da outro, continuando usando o mesmo banco, agora queremos verificar a distribuição do peso dos carros.
+
+```{r histograma}
+
+```
+
 
 
 # Referências
