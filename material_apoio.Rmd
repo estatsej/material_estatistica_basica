@@ -186,6 +186,8 @@ dados_mtcars$disp <- NULL
 dados_mtcars$hp   <- NULL
 
 setnames(dados_mtcars, old = c('mpg', 'cyl', 'drat', 'wt','vs', 'am', 'gear', 'carb'), new = c('Milhas_por_Galao', 'Numero_de_Cilindros', 'Razao_Eixo', 'Peso (1000 lbs)', 'Motor', 'Transmissao', 'Numero_eixos_dianteiros', 'Numero_carboradores'))
+
+dados_mtcars['Peso (Ton)'] <- round(dados_mtcars$`Peso (1000 lbs)` * 0.45359237,3)
 ```
 
 Iremos usar como exemplo uma base de dados, chamada iris, disponível no R. Os dados consistem na distribuição do comprimento e largura das sépalas e pétalas de uma amostra de flores iris.
@@ -243,12 +245,17 @@ legend('topright', legend = c('Automática', 'Manual'),
 ```
 
 
-**Histograma**: É um gráfico utilizado para variáveis quantitativas contínuas, sendo constituído de barras uma ao lado da outro, continuando usando o mesmo banco, agora queremos verificar a distribuição do peso dos carros.
+**Histograma**: É um gráfico utilizado para variáveis quantitativas contínuas, sendo constituído de barras uma ao lado da outro. Prosseguindo usando o mesmo banco, agora, como exemplo, queremos verificar a distribuição do peso dos carros.
 
 ```{r histograma}
 
+hist(dados_mtcars$`Peso (Ton)`,
+     main = 'Histograma do Peso dos carros em Toneladas',
+     xlab = 'Toneladas',
+     ylab = 'Frequência'
+   )
 ```
-
+**Boxplot**
 
 
 # Referências
