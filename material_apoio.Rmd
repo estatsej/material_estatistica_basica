@@ -21,6 +21,10 @@ text-align: justify;
 }
 </style>
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
+```
+
 # Por que Estatística?
 A estatística tem como objetivo levantar dados e informações buscando uma tomada de decisão mais assertiva. Por exemplo, em estudos clínicos, é possível determinar se certo remédio realmente funciona, ou se foi apenas um efeito aleatório no corpo das pessoas, por meio de inferência, também é possível saber a probabilidade de uma lâmpada durar menos de 300 horas de uso, dada sua distribuição, além disso, é possível estimar a média da altura de uma população baseado em uma amostra.
 No que tange a esse curso, serão abordados alguns assuntos que ajudarão a realizar uma **análise descritiva** mais assertiva, sem achismos. 
@@ -229,7 +233,8 @@ legend('topright', legend = c('4 cilindros', '6 cilindros', '8 cilindros'),
        fill =  c("#1fad66", "#ba2121", "#266ed9"))
 ```
 
-Agora respeitando o limite de no utilizar duas categorias, notaremos que mesmo visualmente conseguimos perceber que a transmissão automática é presente em um pouco mais que 50% dos carros da amostra, quanto a manual é o valor complementar.
+<p>Agora respeitando o limite de no utilizar duas categorias, notaremos que mesmo visualmente conseguimos perceber que a transmissão automática é presente em um pouco mais que 50% dos carros da amostra, quanto a manual é o valor complementar.</p>
+
 ```{r grafico de pizza bom, echo = FALSE}
 
 pie_chart <- table(dados_mtcars$Transmissao)
@@ -247,7 +252,7 @@ legend('topright', legend = c('Automática', 'Manual'),
 
 **Histograma**: É um gráfico utilizado para variáveis quantitativas contínuas, sendo constituído de barras uma ao lado da outro. Prosseguindo usando o mesmo banco, agora, como exemplo, queremos verificar a distribuição do peso dos carros.
 
-```{r histograma}
+```{r histograma, echo = FALSE}
 
 hist(dados_mtcars$`Peso (Ton)`,
      main = 'Histograma do Peso dos carros em Toneladas',
@@ -255,7 +260,27 @@ hist(dados_mtcars$`Peso (Ton)`,
      ylab = 'Frequência'
    )
 ```
-**Boxplot**
+
+**Boxplot**: É um gráfico, como o histograma, usado principalmente para variáveis quantitativas contínuas. Esse mostrando várias estátisticas importantes, mostrando os quartis, a mediana, o formato da distribuição e os candidatos a outliers. O gráfico é constituído de uma caixa, uma barra e alguns pontos que são os possíveis outliers.
+
+```{r boxplot, echo = FALSE}
+
+boxplot(dados_mtcars$`Peso (Ton)`,
+     main = 'Boxplot do Peso dos carros em Toneladas',
+     ylab = 'Toneladas'
+   )
+```
+
+# Tabelas de frequência
+
+Tabelas de frequências são uma forma de resumir e mostrar os dados, não são tão simples e rápidos de vizualizar quanto gráficos, no entanto as tabelas mostram muitas informações interessantes, como a frequência em um intervalo, a frequência acumulada, e essas frequências relativas, no formato de porcentagem.
+
+```{r, echo = FALSE}
+library(agricolae)
+
+tab <- with(dados_mtcars, graph.freq(Milhas_por_Galao, plot = F))
+print(table.freq(tab), row.names = FALSE)
+```
 
 
 # Referências
